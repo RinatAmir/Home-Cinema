@@ -1,0 +1,6 @@
+export const SET_LOADING = "SET_LOADING";
+export const GET_MOVIES = "GET_MOVIES";
+export const SET_CURRENT_MOVIE = "SET_CURRENT_MOVIE";
+export const UPDATED_DETAILS = "UPDATED_DETAILS";
+export const DETAILS_ERROR = "DETAILS_ERROR";
+export const DELETE_MOVIE = "DELETE_MOVIE";
