@@ -3,7 +3,7 @@ import {
   SET_CURRENT_MOVIE,
   UPDATED_DETAILS,
   DELETE_MOVIE,
-} from "./types";
+} from './types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -13,13 +13,11 @@ export default (state, action) => {
         ...state,
         movies: action.payload,
       };
-      break;
     case SET_CURRENT_MOVIE:
       return {
         ...state,
         currentMovie: action.payload,
       };
-      break;
     case UPDATED_DETAILS:
       return {
         ...state,
@@ -27,7 +25,6 @@ export default (state, action) => {
           movie.imdbID === action.payload.imdbID ? action.payload : movie
         ),
       };
-      break;
     case DELETE_MOVIE:
       return {
         ...state,
@@ -35,7 +32,6 @@ export default (state, action) => {
           return movie.imdbID !== action.payload;
         }),
       };
-      break;
     default:
       return state;
   }

@@ -1,14 +1,14 @@
-import React, { useReducer } from "react";
-import MoviesContext from "./moviesContext";
-import MoviesReducer from "./moviesReducer";
-import axios from "axios";
+import React, { useReducer } from 'react';
+import MoviesContext from './moviesContext';
+import MoviesReducer from './moviesReducer';
+import axios from 'axios';
 
 import {
   GET_MOVIES,
   SET_CURRENT_MOVIE,
   UPDATED_DETAILS,
   DELETE_MOVIE,
-} from "./types";
+} from './types';
 
 const MoviesState = (props) => {
   const initialState = {
@@ -22,7 +22,7 @@ const MoviesState = (props) => {
   const getMovies = async () => {
     try {
       const response = await axios.get(
-        "http://www.omdbapi.com/?s=love&apikey=5dbdc964"
+        'http://www.omdbapi.com/?s=dogs&apikey=5dbdc964'
       );
       removeNonAlphaNumericLetters(response.data.Search);
       dispatch({ type: GET_MOVIES, payload: response.data.Search });
@@ -33,7 +33,7 @@ const MoviesState = (props) => {
 
   const removeNonAlphaNumericLetters = (moviesArray) => {
     moviesArray.forEach((movie) => {
-      movie.Title = movie.Title.replace(/[^a-zA-Z0-9\,\s]+/g, "");
+      movie.Title = movie.Title.replace(/[^a-zA-Z0-9,\s]+/g, '');
     });
   };
 
@@ -42,7 +42,7 @@ const MoviesState = (props) => {
   };
 
   const updatedMovie = (newDetailsMovie) => {
-    console.log("newDetailsMovie", newDetailsMovie);
+    console.log('newDetailsMovie', newDetailsMovie);
     dispatch({ type: UPDATED_DETAILS, payload: newDetailsMovie });
   };
 
